@@ -11,12 +11,11 @@ cd java-patterns-and-constructs
 ```
 ## Da List
 ### Patterns
-* Factory Method
-* Observer
-* Singleton
+* [Factory Method](src/main/java/com/penapereira/example/constructs/factorymethod/)
+* [Observer](src/main/java/com/penapereira/example/constructs/observer/)
+* [Singleton](src/main/java/com/penapereira/example/constructs/singleton/)
 ### Constructs and Problems
-* [Producer/Consumer](src/main/java/com/penapereira/example/constructs/observer/), a multi-process synchronization problem.
-* Monitor, a synchronization construct that allows threads to have both mutual exclusion and wait for conditions.
+* [Producer/Consumer](src/main/java/com/penapereira/example/constructs/producerconsumer/), a multi-process synchronization problem.
 
 ## Caveats
 Change the log level to TRACE in `application.properties` if you would like to see the output from examples:
