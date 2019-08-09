@@ -24,6 +24,8 @@ Change the log level to TRACE in `application.properties` if you would like to s
 logging.level.com.penapereira.example.*=TRACE
 ```
 ## Contributing
+If you have an interesting idea but don't know how to implement it, feel free to open an issue to request a new feature.
+
 If you would like to contribute additional constructs or patterns follow this steps to add an additional package with the additional example:
 
 1. Create an additional nested package (i.e. `newexample`) as `com.penapereira.example.constructs.newexample`
