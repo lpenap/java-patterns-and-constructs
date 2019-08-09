@@ -1,4 +1,4 @@
-package com.penapereira.example.constructs.properties;
+package com.penapereira.example.constructs.app.properties;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Configuration;

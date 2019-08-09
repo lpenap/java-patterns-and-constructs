@@ -1,4 +1,4 @@
-package com.penapereira.example.constructs.ui.events;
+package com.penapereira.example.constructs.app.ui;
 
 import java.awt.Color;
 import java.awt.Desktop;
@@ -13,7 +13,7 @@ import javax.swing.JLabel;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.penapereira.example.constructs.properties.ApplicationProperties;
+import com.penapereira.example.constructs.app.properties.ApplicationProperties;
 
 public class HyperlinkMouseListener implements MouseListener {
 

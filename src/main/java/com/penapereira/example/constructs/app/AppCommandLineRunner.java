@@ -1,4 +1,4 @@
-package com.penapereira.example.constructs;
+package com.penapereira.example.constructs.app;
 
 import java.awt.EventQueue;
 
@@ -6,16 +6,14 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
-import org.springframework.boot.autoconfigure.context.MessageSourceAutoConfiguration;
 import org.springframework.stereotype.Component;
 
-import com.penapereira.example.constructs.properties.ApplicationProperties;
-import com.penapereira.example.constructs.properties.Messages;
-import com.penapereira.example.constructs.ui.MainWindow;
+import com.penapereira.example.constructs.app.properties.Messages;
+import com.penapereira.example.constructs.app.ui.MainWindow;
 
 @Component
-public class CommandLineLauncher implements CommandLineRunner {
-	private static Logger log = LoggerFactory.getLogger(CommandLineLauncher.class);
+public class AppCommandLineRunner implements CommandLineRunner {
+	private static Logger log = LoggerFactory.getLogger(AppCommandLineRunner.class);
 
 	@Autowired
 	MainWindow main;

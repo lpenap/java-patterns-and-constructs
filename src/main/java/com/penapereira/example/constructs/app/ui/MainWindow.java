@@ -1,4 +1,4 @@
-package com.penapereira.example.constructs.ui;
+package com.penapereira.example.constructs.app.ui;
 
 import java.awt.Color;
 import java.awt.Cursor;
@@ -16,9 +16,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.penapereira.example.constructs.properties.ApplicationProperties;
-import com.penapereira.example.constructs.properties.Messages;
-import com.penapereira.example.constructs.ui.events.HyperlinkMouseListener;
+import com.penapereira.example.constructs.app.properties.ApplicationProperties;
+import com.penapereira.example.constructs.app.properties.Messages;
 
 @Component
 public class MainWindow extends JFrame {
