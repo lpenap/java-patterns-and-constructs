@@ -14,4 +14,8 @@ public class Messages {
 	protected String windowTitle;
 	protected String homeUrl;
 	protected String info;
+	protected String examplesFound;
+	protected String enableTraceToSeeExamplesDetails;
+	protected String enableDebugToSeeExamplesList;
+	protected String separator;
 }

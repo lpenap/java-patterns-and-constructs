@@ -21,16 +21,17 @@ public class HyperlinkMouseListener implements MouseListener {
 
 	ApplicationProperties props;
 
+	private String lastText;
+
 	public HyperlinkMouseListener(ApplicationProperties props) {
 		this.props = props;
 	}
 
 	@Override
 	public void mouseClicked(MouseEvent e) {
-		String uriText = ((JLabel) e.getComponent()).getText();
-		log.debug("Hyperlink text: " + uriText);
+		log.debug("Hyperlink text: " + lastText);
 		try {
-			Desktop.getDesktop().browse(new URI(uriText));
+			Desktop.getDesktop().browse(new URI(lastText));
 		} catch (IOException | URISyntaxException e1) {
 			log.error("Error opening link", e);
 		}
@@ -39,12 +40,15 @@ public class HyperlinkMouseListener implements MouseListener {
 	@Override
 	public void mouseEntered(MouseEvent e) {
 		JLabel label = (JLabel) e.getComponent();
+		this.lastText = label.getText();
+		label.setText(String.format("<html><a href=''>%s</a></html>", lastText));
 		label.setForeground(Color.decode(props.getLinkColorHover()));
 	}
 
 	@Override
 	public void mouseExited(MouseEvent e) {
 		JLabel label = (JLabel) e.getComponent();
+		label.setText(lastText);
 		label.setForeground(Color.decode(props.getLinkColor()));
 	}
 

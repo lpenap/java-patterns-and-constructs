@@ -11,8 +11,6 @@ import javax.swing.JPanel;
 import javax.swing.JSeparator;
 import javax.swing.SwingConstants;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -22,7 +20,6 @@ import com.penapereira.example.constructs.app.properties.Messages;
 @Component
 public class MainWindow extends JFrame {
 	private static final long serialVersionUID = 1L;
-	private static final Logger log = LoggerFactory.getLogger(MainWindow.class);
 
 	@Autowired
 	Messages msg;
@@ -35,14 +32,12 @@ public class MainWindow extends JFrame {
 	}
 
 	public void initializeFrame() {
-		log.debug("Initializing main window...");
 		prepareWindow();
 		setContentPane(getMainComponent());
 		adjustWindow();
 	}
 
 	private void adjustWindow() {
-		log.debug("Adjusting main window...");
 		pack();
 		setLocationRelativeTo(null);
 		setSize(getWidth() + 50, getHeight() + 50);
