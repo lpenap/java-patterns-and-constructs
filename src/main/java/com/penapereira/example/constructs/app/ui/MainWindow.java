@@ -58,7 +58,7 @@ public class MainWindow extends JFrame {
 
 	private void loadIcon() {
 		try {
-			var icon = ImageIO.read(props.getAppIcon().getFile());
+			var icon = ImageIO.read(props.getAppIcon().getInputStream());
 			setIconImage(icon);
 		} catch (IOException e) {
 			log.warn("Could not load app icon", e);
