@@ -37,7 +37,8 @@ public class ExamplesCommandLineRunner implements CommandLineRunner {
 		log.debug(String.format("%s (%s):", msg.getExamplesFound(), ExampleRunnerInterface.class.getSimpleName()));
 		var count = 0;
 		while (i.hasNext()) {
-			log.debug(String.format("%4d : %s", ++count, i.next().replaceFirst("ExampleRunner", "")));
+			var cleanName = i.next().replaceFirst("ExampleRunner", "");
+			log.debug(String.format("%4d : %s", ++count, cleanName));
 		}
 	}
 

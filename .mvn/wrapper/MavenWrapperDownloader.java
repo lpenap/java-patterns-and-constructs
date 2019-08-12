@@ -26,6 +26,7 @@ import java.nio.channels.Channels;
 import java.nio.channels.ReadableByteChannel;
 import java.util.Properties;
 
+// codebeat:disable[LOC,ABC,BLOCK_NESTING,CYCLO,TOTAL_COMPLEXITY,TOTAL_LOC,TOO_MANY_FUNCTIONS,TOO_MANY_IVARS]
 public class MavenWrapperDownloader {
 
     /**
@@ -112,3 +113,4 @@ public class MavenWrapperDownloader {
     }
 
 }
+// codebeat:enable[LOC,ABC,BLOCK_NESTING,CYCLO,TOTAL_COMPLEXITY,TOTAL_LOC,TOO_MANY_FUNCTIONS,TOO_MANY_IVARS]

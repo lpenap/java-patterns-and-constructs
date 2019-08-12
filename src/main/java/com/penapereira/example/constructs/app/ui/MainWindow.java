@@ -67,32 +67,32 @@ public class MainWindow extends JFrame {
 
 	private JPanel getMainComponent() {
 		JPanel mainPanel = new JPanel(new GridLayout(4, 1));
-		var title = createCenteredLabelOnPanel(msg.getGreeting(), mainPanel);
-		formatLabelAsTitle(title);
+		createCenteredTitle(msg.getGreeting(), mainPanel);
 		mainPanel.add(new JSeparator(SwingConstants.HORIZONTAL));
 		createCenteredLabelOnPanel(msg.getInfo(), mainPanel);
-		var label = createCenteredLabelOnPanel(msg.getHomeUrl(), mainPanel);
-		formatLabelAsHyerlink(label);
+		createCenteredHyperlink(msg.getHomeUrl(), mainPanel);
 		return mainPanel;
 	}
 
-	private void formatLabelAsTitle(JLabel title) {
+	private void createCenteredTitle(String text, JPanel panel) {
+		JLabel title = new JLabel(text, JLabel.CENTER);
 		Font current = title.getFont();
 		title.setFont(new Font(current.getName(), current.getStyle(), current.getSize() + 4));
+		panel.add(title);
 	}
 
-	private void formatLabelAsHyerlink(JLabel label) {
-		label.setForeground(Color.decode(props.getLinkColor()));
-		label.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		label.addMouseListener(new HyperlinkMouseListener(props));
+	private void createCenteredHyperlink(String text, JPanel panel) {
+		JLabel hyperlink = new JLabel(text, JLabel.CENTER);
+		hyperlink.setForeground(Color.decode(props.getLinkColor()));
+		hyperlink.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		hyperlink.addMouseListener(new HyperlinkMouseListener(props));
+		panel.add(hyperlink);
 	}
 
-	private JLabel createCenteredLabelOnPanel(String text, JPanel panel) {
+	private void createCenteredLabelOnPanel(String text, JPanel panel) {
 		JLabel label = new JLabel(text);
 		label.setHorizontalAlignment(JLabel.CENTER);
-		label.setVerticalAlignment(JLabel.CENTER);
 		panel.add(label);
-		return label;
 	}
 
 }

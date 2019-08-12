@@ -1,4 +1,6 @@
 # Java Design Patterns and Constructs
+[![Build Status](https://travis-ci.org/lpenap/java-patterns-and-constructs.svg)](https://travis-ci.org/lpenap/java-patterns-and-constructs)
+
 Collection of patterns and other constructs in Java (See *Contributing* section if you would like to contribute)
 
 ## Quickstart

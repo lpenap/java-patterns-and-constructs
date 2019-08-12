@@ -8,6 +8,7 @@ import lombok.Data;
 @Data
 @Configuration
 @ConfigurationProperties(prefix = "msg")
+//codebeat:disable[TOO_MANY_IVARS]
 public class Messages {
 
 	protected String greeting;
@@ -19,3 +20,4 @@ public class Messages {
 	protected String enableDebugToSeeExamplesList;
 	protected String separator;
 }
+//codebeat:enable[TOO_MANY_IVARS]
