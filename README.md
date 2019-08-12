@@ -1,7 +1,9 @@
-# Java Design Patterns and Constructs
+[![codebeat badge](https://codebeat.co/badges/4c328c5d-1722-459f-aaa1-437a0ed6201f)](https://codebeat.co/projects/github-com-lpenap-java-patterns-and-constructs-master)
 [![Build Status](https://travis-ci.org/lpenap/java-patterns-and-constructs.svg)](https://travis-ci.org/lpenap/java-patterns-and-constructs)
+[![GitHub release](https://img.shields.io/github/release/lpenap/java-patterns-and-constructs)](//github.com/lpenap/java-patterns-and-constructs/releases/latest)
 
-Collection of patterns and other constructs in Java (See *Contributing* section if you would like to contribute)
+# Java Design Patterns and Constructs
+Collection of patterns and other constructs in Java for educational purposes. (See *Contributing* section if you would like to contribute).
 
 ## Quickstart
 * Install a Java 11 implementation (like openjdk11)
