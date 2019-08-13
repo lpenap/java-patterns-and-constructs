@@ -68,7 +68,6 @@ public class MainWindow extends JFrame {
 	private JPanel getMainComponent() {
 		JPanel mainPanel = new JPanel(new GridLayout(4, 1));
 		createCenteredTitle(msg.getGreeting(), mainPanel);
-		mainPanel.add(new JSeparator(SwingConstants.HORIZONTAL));
 		createCenteredLabelOnPanel(msg.getInfo(), mainPanel);
 		createCenteredHyperlink(msg.getHomeUrl(), mainPanel);
 		return mainPanel;
@@ -79,6 +78,7 @@ public class MainWindow extends JFrame {
 		Font current = title.getFont();
 		title.setFont(new Font(current.getName(), current.getStyle(), current.getSize() + 4));
 		panel.add(title);
+		panel.add(new JSeparator(SwingConstants.HORIZONTAL));
 	}
 
 	private void createCenteredHyperlink(String text, JPanel panel) {
