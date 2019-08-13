@@ -10,7 +10,6 @@ import lombok.Data;
 @Data
 @Configuration
 @ConfigurationProperties(prefix = "app")
-//codebeat:disable[TOO_MANY_IVARS]
 public class ApplicationProperties {
 
 	protected int windowMarginX;
@@ -22,4 +21,3 @@ public class ApplicationProperties {
 	@Value("classpath:icon.png")
 	protected Resource appIcon;
 }
-//codebeat:enable[TOO_MANY_IVARS]
