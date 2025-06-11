@@ -16,6 +16,8 @@ cd java-patterns-and-constructs
 ```
 ## Da List
 ### Patterns
+* [Abstract Factory](src/main/java/com/penapereira/example/constructs/abstractfactory/)
+* [Factory](src/main/java/com/penapereira/example/constructs/factory/)
 * [Factory Method](src/main/java/com/penapereira/example/constructs/factorymethod/)
 * [Observer](src/main/java/com/penapereira/example/constructs/observer/)
 * [Singleton](src/main/java/com/penapereira/example/constructs/singleton/)
