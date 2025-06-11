@@ -16,6 +16,7 @@ class MessagesTests {
         m.setEnableTraceToSeeExamplesDetails("TD");
         m.setEnableDebugToSeeExamplesList("DL");
         m.setSeparator("-");
+        m.setOutputTitle("OT");
 
         assertEquals("G", m.getGreeting());
         assertEquals("T", m.getWindowTitle());
@@ -25,6 +26,7 @@ class MessagesTests {
         assertEquals("TD", m.getEnableTraceToSeeExamplesDetails());
         assertEquals("DL", m.getEnableDebugToSeeExamplesList());
         assertEquals("-", m.getSeparator());
+        assertEquals("OT", m.getOutputTitle());
 
         String s = m.toString();
         assertTrue(s.contains("G"));
@@ -40,6 +42,7 @@ class MessagesTests {
         other.setEnableTraceToSeeExamplesDetails("TD");
         other.setEnableDebugToSeeExamplesList("DL");
         other.setSeparator("-");
+        other.setOutputTitle("OT");
         assertEquals(m, other);
         assertEquals(m.hashCode(), other.hashCode());
         assertNotEquals(m, "foo");
