@@ -3,6 +3,7 @@ package com.penapereira.example.constructs.app.ui;
 import java.awt.Color;
 import java.awt.Cursor;
 import java.awt.Font;
+import java.awt.BorderLayout;
 import java.awt.GridLayout;
 import java.io.IOException;
 
@@ -10,7 +11,9 @@ import javax.imageio.ImageIO;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.JSeparator;
+import javax.swing.JTextArea;
 import javax.swing.SwingConstants;
 
 import org.slf4j.Logger;
@@ -26,7 +29,9 @@ public class MainWindow extends JFrame {
 
 	private static final Logger log = LoggerFactory.getLogger(MainWindow.class);
 
-	private static final long serialVersionUID = 1L;
+        private static final long serialVersionUID = 1L;
+
+        private JTextArea outputArea;
 
 	@Autowired
 	Messages msg;
@@ -65,13 +70,23 @@ public class MainWindow extends JFrame {
 		}
 	}
 
-	private JPanel getMainComponent() {
-		JPanel mainPanel = new JPanel(new GridLayout(4, 1));
-		createCenteredTitle(msg.getGreeting(), mainPanel);
-		createCenteredLabelOnPanel(msg.getInfo(), mainPanel);
-		createCenteredHyperlink(msg.getHomeUrl(), mainPanel);
-		return mainPanel;
-	}
+        private JPanel getMainComponent() {
+                JPanel mainPanel = new JPanel(new BorderLayout());
+
+                JPanel infoPanel = new JPanel(new GridLayout(4, 1));
+                createCenteredTitle(msg.getGreeting(), infoPanel);
+                createCenteredLabelOnPanel(msg.getInfo(), infoPanel);
+                createCenteredHyperlink(msg.getHomeUrl(), infoPanel);
+                mainPanel.add(infoPanel, BorderLayout.NORTH);
+
+                outputArea = new JTextArea(10, 40);
+                outputArea.setEditable(false);
+                JScrollPane scrollPane = new JScrollPane(outputArea);
+                scrollPane.setBorder(javax.swing.BorderFactory.createTitledBorder(msg.getOutputTitle()));
+                mainPanel.add(scrollPane, BorderLayout.CENTER);
+
+                return mainPanel;
+        }
 
 	private void createCenteredTitle(String text, JPanel panel) {
 		JLabel title = new JLabel(text, JLabel.CENTER);
@@ -89,10 +104,17 @@ public class MainWindow extends JFrame {
 		panel.add(hyperlink);
 	}
 
-	private void createCenteredLabelOnPanel(String text, JPanel panel) {
-		JLabel label = new JLabel(text);
-		label.setHorizontalAlignment(JLabel.CENTER);
-		panel.add(label);
-	}
+        private void createCenteredLabelOnPanel(String text, JPanel panel) {
+                JLabel label = new JLabel(text);
+                label.setHorizontalAlignment(JLabel.CENTER);
+                panel.add(label);
+        }
+
+        public void appendOutput(String text) {
+                if (outputArea != null) {
+                        outputArea.append(text);
+                        outputArea.setCaretPosition(outputArea.getDocument().getLength());
+                }
+        }
 
 }
