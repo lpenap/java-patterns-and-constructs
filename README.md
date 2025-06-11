@@ -19,6 +19,7 @@ cd java-patterns-and-constructs
 * [Factory Method](src/main/java/com/penapereira/example/constructs/factorymethod/)
 * [Observer](src/main/java/com/penapereira/example/constructs/observer/)
 * [Singleton](src/main/java/com/penapereira/example/constructs/singleton/)
+* [Template Method](src/main/java/com/penapereira/example/constructs/templatemethod/)
 ### Constructs and Problems
 * [Producer/Consumer](src/main/java/com/penapereira/example/constructs/producerconsumer/), a multi-process synchronization problem.
 
