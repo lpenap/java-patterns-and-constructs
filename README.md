@@ -1,5 +1,7 @@
-[![codebeat badge](https://codebeat.co/badges/4c328c5d-1722-459f-aaa1-437a0ed6201f)](https://codebeat.co/projects/github-com-lpenap-java-patterns-and-constructs-master)
+[![maven build](https://github.com/lpenap/java-patterns-and-constructs/actions/workflows/merged_master.yml/badge.svg)](https://github.com/lpenap/java-patterns-and-constructs/actions/workflows/merged_master.yml)
 [![GitHub release](https://img.shields.io/github/release/lpenap/java-patterns-and-constructs)](//github.com/lpenap/java-patterns-and-constructs/releases/latest)
+[![codebeat badge](https://codebeat.co/badges/4c328c5d-1722-459f-aaa1-437a0ed6201f)](https://codebeat.co/projects/github-com-lpenap-java-patterns-and-constructs-master)
+![Coverage](.github/badges/jacoco.svg)
 
 # Java Design Patterns and Constructs
 Collection of patterns and other constructs in Java for educational purposes. (See *Contributing* section if you would like to contribute).
