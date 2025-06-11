@@ -1,6 +1,0 @@
-dist: bionic
-services:
-  - xvfb
-language: java
-jdk:
-  - openjdk11
