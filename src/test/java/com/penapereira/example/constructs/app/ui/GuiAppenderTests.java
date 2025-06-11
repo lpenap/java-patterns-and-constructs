@@ -15,7 +15,12 @@ import ch.qos.logback.classic.spi.LoggingEvent;
 class GuiAppenderTests {
     @Test
     void appendsMessageToTextArea() throws Exception {
-        MainWindow window = new MainWindow();
+        // Allocate a MainWindow instance without triggering the JFrame constructor
+        Field theUnsafeField = sun.misc.Unsafe.class.getDeclaredField("theUnsafe");
+        theUnsafeField.setAccessible(true);
+        sun.misc.Unsafe unsafe = (sun.misc.Unsafe) theUnsafeField.get(null);
+
+        MainWindow window = (MainWindow) unsafe.allocateInstance(MainWindow.class);
         JTextArea area = new JTextArea();
         Field f = MainWindow.class.getDeclaredField("outputArea");
         f.setAccessible(true);
