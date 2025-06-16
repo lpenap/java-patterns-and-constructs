@@ -17,10 +17,13 @@ cd java-patterns-and-constructs
 ## Da List
 ### Patterns
 * [Abstract Factory](src/main/java/com/penapereira/example/constructs/abstractfactory/)
+* [Adapter](src/main/java/com/penapereira/example/constructs/adapter/)
+* [Decorator](src/main/java/com/penapereira/example/constructs/decorator/)
 * [Factory](src/main/java/com/penapereira/example/constructs/factory/)
 * [Factory Method](src/main/java/com/penapereira/example/constructs/factorymethod/)
 * [Observer](src/main/java/com/penapereira/example/constructs/observer/)
 * [Singleton](src/main/java/com/penapereira/example/constructs/singleton/)
+* [Strategy](src/main/java/com/penapereira/example/constructs/strategy/)
 * [Template Method](src/main/java/com/penapereira/example/constructs/templatemethod/)
 ### Constructs and Problems
 * [Producer/Consumer](src/main/java/com/penapereira/example/constructs/producerconsumer/), a multi-process synchronization problem.
