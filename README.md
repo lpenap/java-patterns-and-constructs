@@ -18,6 +18,7 @@ cd java-patterns-and-constructs
 ### Patterns
 * [Abstract Factory](src/main/java/com/penapereira/example/constructs/abstractfactory/)
 * [Adapter](src/main/java/com/penapereira/example/constructs/adapter/)
+* [Chain of Responsibility](src/main/java/com/penapereira/example/constructs/chainofresponsibility/)
 * [Decorator](src/main/java/com/penapereira/example/constructs/decorator/)
 * [Factory](src/main/java/com/penapereira/example/constructs/factory/)
 * [Factory Method](src/main/java/com/penapereira/example/constructs/factorymethod/)

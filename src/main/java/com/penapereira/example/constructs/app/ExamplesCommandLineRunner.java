@@ -10,6 +10,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Component;
 
+import com.penapereira.example.constructs.app.properties.ApplicationProperties;
 import com.penapereira.example.constructs.app.properties.Messages;
 
 @Component
@@ -23,12 +24,17 @@ public class ExamplesCommandLineRunner implements CommandLineRunner {
 	@Autowired
 	Messages msg;
 
+	@Autowired
+	ApplicationProperties props;
+
 	@Override
 	public void run(String... args) throws Exception {
 		List<String> beanNames = Arrays.asList(ctx.getBeanNamesForType(ExampleRunnerInterface.class));
-
-		listExamples(beanNames);
-		executeExamples(beanNames);
+		
+		if (props.getEnableCommandLineRunner()) {
+			listExamples(beanNames);
+   			executeExamples(beanNames);
+		}
 	}
 
 	private void listExamples(List<String> beanNames) {

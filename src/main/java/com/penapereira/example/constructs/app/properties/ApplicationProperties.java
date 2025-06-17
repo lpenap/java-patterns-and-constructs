@@ -20,4 +20,6 @@ public class ApplicationProperties {
 
 	@Value("classpath:icon.png")
 	protected Resource appIcon;
+
+	protected Boolean enableCommandLineRunner;
 }
