@@ -15,6 +15,7 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JSeparator;
 import javax.swing.JTextArea;
+import javax.swing.JCheckBox;
 import javax.swing.SwingConstants;
 
 import org.slf4j.Logger;
@@ -34,7 +35,8 @@ public class MainWindow extends JFrame {
 
         private static final long serialVersionUID = 1L;
 
-        private JTextArea outputArea;
+    private JTextArea outputArea;
+    private JCheckBox preserveLogCheck;
 
 	@Autowired
 	Messages msg;
@@ -93,7 +95,14 @@ public class MainWindow extends JFrame {
                outputArea.setEditable(false);
                JScrollPane scrollPane = new JScrollPane(outputArea);
                scrollPane.setBorder(javax.swing.BorderFactory.createTitledBorder(msg.getOutputTitle()));
-               mainPanel.add(scrollPane, BorderLayout.CENTER);
+
+               preserveLogCheck = new JCheckBox(msg.getPreserveLog());
+
+               JPanel outputPanel = new JPanel(new BorderLayout());
+               outputPanel.add(preserveLogCheck, BorderLayout.NORTH);
+               outputPanel.add(scrollPane, BorderLayout.CENTER);
+
+               mainPanel.add(outputPanel, BorderLayout.CENTER);
 
                return mainPanel;
         }
@@ -149,6 +158,9 @@ public class MainWindow extends JFrame {
        }
 
        private void runExample(ExampleRunnerInterface runner) {
+               if (!preserveLogCheck.isSelected()) {
+                       outputArea.setText("");
+               }
                new Thread(() -> {
                        try {
                                log.trace(msg.getSeparator());
@@ -160,6 +172,9 @@ public class MainWindow extends JFrame {
        }
 
        private void runAllExamples() {
+               if (!preserveLogCheck.isSelected()) {
+                       outputArea.setText("");
+               }
                new Thread(() -> {
                        examples.values().forEach(r -> {
                                try {
