@@ -30,10 +30,9 @@ public class ExamplesCommandLineRunner implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 		List<String> beanNames = Arrays.asList(ctx.getBeanNamesForType(ExampleRunnerInterface.class));
-
-		listExamples(beanNames);
-
+		
 		if (props.getEnableCommandLineRunner()) {
+			listExamples(beanNames);
    			executeExamples(beanNames);
 		}
 	}
