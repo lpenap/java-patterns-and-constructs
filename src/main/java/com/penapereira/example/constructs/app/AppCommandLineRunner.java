@@ -23,12 +23,14 @@ public class AppCommandLineRunner implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-		log.info(msg.getGreeting());
-		log.info(msg.getHomeUrl());
 		EventQueue.invokeLater(() -> {
 			main.initializeFrame();
 			main.setVisible(true);
 		});
+		log.info(msg.getSeparator());
+		log.info(msg.getGreeting());
+		log.info(msg.getHomeUrl());
+		log.info(msg.getInstructions());
 	}
 
 }
