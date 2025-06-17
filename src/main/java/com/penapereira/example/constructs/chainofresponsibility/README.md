@@ -4,6 +4,7 @@ The chain of responsibility pattern passes a request along a chain of handlers u
 
 ## Class diagram
 
+![Class diagram](/assets/images/chainofresponsibility.png)
 
 ```plantuml
 @startuml
@@ -14,10 +15,15 @@ interface Handler {
 abstract class AbstractHandler implements Handler {
     -next : Handler
 }
-class NegativeHandler extends AbstractHandler
-class ZeroHandler extends AbstractHandler
-class PositiveHandler extends AbstractHandler
-Handler <|.. AbstractHandler
+class NegativeHandler extends AbstractHandler {
+    +handle(request)
+}
+class ZeroHandler extends AbstractHandler {
+    +handle(request)
+}
+class PositiveHandler extends AbstractHandler {
+    +handle(request)
+}
 AbstractHandler --> Handler : next
 @enduml
 ```
