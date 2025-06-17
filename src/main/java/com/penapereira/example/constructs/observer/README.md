@@ -3,6 +3,9 @@
 The observer pattern defines a one-to-many dependency so that when one object changes state, its dependents are notified automatically.
 
 ## Class diagram
+
+![Class diagram](/assets/images/observer.png)
+
 ```plantuml
 @startuml
 interface ObservableInterface {
@@ -17,7 +20,6 @@ class Observable extends ObservableAbstract {
 class Observer implements PropertyChangeListener {
     +propertyChange(e)
 }
-ObservableAbstract <|-- Observable
 Observable --> Observer : notifies
 @enduml
 ```

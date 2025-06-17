@@ -3,6 +3,9 @@
 The decorator pattern attaches additional responsibilities to an object dynamically by wrapping it with decorator classes.
 
 ## Class diagram
+
+![Class diagram](/assets/images/decorator.png)
+
 ```plantuml
 @startuml
 interface ComponentIF {
@@ -13,9 +16,6 @@ abstract class Decorator implements ComponentIF {
     -component : ComponentIF
 }
 class ConcreteDecoratorA extends Decorator
-ComponentIF <|.. ConcreteComponent
-ComponentIF <|.. Decorator
-Decorator <|-- ConcreteDecoratorA
 ConcreteDecoratorA --> ComponentIF
 @enduml
 ```

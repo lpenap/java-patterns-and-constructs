@@ -3,6 +3,9 @@
 The strategy pattern defines a family of algorithms, encapsulates each one, and makes them interchangeable at runtime.
 
 ## Class diagram
+
+![Class diagram](/assets/images/strategy.png)
+
 ```plantuml
 @startuml
 interface Strategy {
@@ -15,8 +18,6 @@ class Context {
     +operation()
     +setStrategy(Strategy)
 }
-Strategy <|.. StrategyImpl1
-Strategy <|.. StrategyImpl2
 Context --> Strategy
 @enduml
 ```
