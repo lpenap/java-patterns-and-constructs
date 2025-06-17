@@ -8,6 +8,7 @@ import java.awt.GridLayout;
 import java.io.IOException;
 
 import javax.imageio.ImageIO;
+import javax.swing.BoxLayout;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -19,10 +20,12 @@ import javax.swing.SwingConstants;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Component;
 
 import com.penapereira.example.constructs.app.properties.ApplicationProperties;
 import com.penapereira.example.constructs.app.properties.Messages;
+import com.penapereira.example.constructs.app.ExampleRunnerInterface;
 
 @Component
 public class MainWindow extends JFrame {
@@ -36,8 +39,13 @@ public class MainWindow extends JFrame {
 	@Autowired
 	Messages msg;
 
-	@Autowired
-	ApplicationProperties props;
+        @Autowired
+        ApplicationProperties props;
+
+       @Autowired
+       ApplicationContext ctx;
+
+       private java.util.Map<String, ExampleRunnerInterface> examples;
 
 	public MainWindow() {
 		super();
@@ -73,19 +81,21 @@ public class MainWindow extends JFrame {
         private JPanel getMainComponent() {
                 JPanel mainPanel = new JPanel(new BorderLayout());
 
-                JPanel infoPanel = new JPanel(new GridLayout(4, 1));
-                createCenteredTitle(msg.getGreeting(), infoPanel);
-                createCenteredLabelOnPanel(msg.getInfo(), infoPanel);
-                createCenteredHyperlink(msg.getHomeUrl(), infoPanel);
-                mainPanel.add(infoPanel, BorderLayout.NORTH);
+               JPanel infoPanel = new JPanel(new GridLayout(4, 1));
+               createCenteredTitle(msg.getGreeting(), infoPanel);
+               createCenteredLabelOnPanel(msg.getInfo(), infoPanel);
+               createCenteredHyperlink(msg.getHomeUrl(), infoPanel);
+               mainPanel.add(infoPanel, BorderLayout.NORTH);
 
-                outputArea = new JTextArea(10, 40);
-                outputArea.setEditable(false);
-                JScrollPane scrollPane = new JScrollPane(outputArea);
-                scrollPane.setBorder(javax.swing.BorderFactory.createTitledBorder(msg.getOutputTitle()));
-                mainPanel.add(scrollPane, BorderLayout.CENTER);
+               mainPanel.add(createExamplesPanel(), BorderLayout.WEST);
 
-                return mainPanel;
+               outputArea = new JTextArea(10, 40);
+               outputArea.setEditable(false);
+               JScrollPane scrollPane = new JScrollPane(outputArea);
+               scrollPane.setBorder(javax.swing.BorderFactory.createTitledBorder(msg.getOutputTitle()));
+               mainPanel.add(scrollPane, BorderLayout.CENTER);
+
+               return mainPanel;
         }
 
 	private void createCenteredTitle(String text, JPanel panel) {
@@ -116,5 +126,50 @@ public class MainWindow extends JFrame {
                         outputArea.setCaretPosition(outputArea.getDocument().getLength());
                 }
         }
+
+       private JPanel createExamplesPanel() {
+               examples = ctx.getBeansOfType(ExampleRunnerInterface.class);
+
+               JPanel panel = new JPanel();
+               panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
+               panel.setBorder(javax.swing.BorderFactory.createTitledBorder(msg.getExamplesFound()));
+
+               javax.swing.JButton allButton = new javax.swing.JButton("Run All");
+               allButton.addActionListener(e -> runAllExamples());
+               panel.add(allButton);
+
+               examples.forEach((name, runner) -> {
+                       String clean = name.replaceFirst("ExampleRunner", "");
+                       javax.swing.JButton btn = new javax.swing.JButton(clean);
+                       btn.addActionListener(e -> runExample(runner));
+                       panel.add(btn);
+               });
+
+               return panel;
+       }
+
+       private void runExample(ExampleRunnerInterface runner) {
+               new Thread(() -> {
+                       try {
+                               log.trace(msg.getSeparator());
+                               runner.runExample();
+                       } catch (Exception e) {
+                               log.error("Error executing example", e);
+                       }
+               }).start();
+       }
+
+       private void runAllExamples() {
+               new Thread(() -> {
+                       examples.values().forEach(r -> {
+                               try {
+                                       log.trace(msg.getSeparator());
+                                       r.runExample();
+                               } catch (Exception e) {
+                                       log.error("Error executing example", e);
+                               }
+                       });
+               }).start();
+       }
 
 }
