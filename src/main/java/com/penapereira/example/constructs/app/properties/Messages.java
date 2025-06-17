@@ -19,4 +19,5 @@ public class Messages {
         protected String enableDebugToSeeExamplesList;
         protected String separator;
         protected String outputTitle;
+        protected String preserveLog;
 }
