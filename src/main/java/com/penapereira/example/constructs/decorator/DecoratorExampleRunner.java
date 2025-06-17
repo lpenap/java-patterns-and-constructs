@@ -6,8 +6,6 @@ import org.springframework.stereotype.Component;
 
 import com.penapereira.example.constructs.app.ExampleRunnerInterface;
 
-import com.penapereira.example.constructs.decorator.ComponentIF;
-
 @Component
 public class DecoratorExampleRunner implements ExampleRunnerInterface {
 
