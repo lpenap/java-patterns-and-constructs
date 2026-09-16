@@ -17,23 +17,34 @@ import com.penapereira.example.constructs.app.properties.ApplicationProperties;
 
 public class HyperlinkMouseListener implements MouseListener {
 
-	private Logger log = LoggerFactory.getLogger(HyperlinkMouseListener.class);
+	/** Opens a link in the user's browser. Replaceable in tests, where there is no desktop. */
+	@FunctionalInterface
+	interface LinkOpener {
+		void open(URI uri) throws IOException;
+	}
 
-	ApplicationProperties props;
+	private static final Logger log = LoggerFactory.getLogger(HyperlinkMouseListener.class);
 
+	private final ApplicationProperties props;
+	private final LinkOpener linkOpener;
 	private String lastText;
 
 	public HyperlinkMouseListener(ApplicationProperties props) {
+		this(props, uri -> Desktop.getDesktop().browse(uri));
+	}
+
+	HyperlinkMouseListener(ApplicationProperties props, LinkOpener linkOpener) {
 		this.props = props;
+		this.linkOpener = linkOpener;
 	}
 
 	@Override
 	public void mouseClicked(MouseEvent e) {
 		log.debug("Hyperlink text: " + lastText);
 		try {
-			Desktop.getDesktop().browse(new URI(lastText));
-		} catch (IOException | URISyntaxException e1) {
-			log.error("Error opening link", e);
+			linkOpener.open(new URI(lastText));
+		} catch (IOException | URISyntaxException | RuntimeException ex) {
+			log.error("Error opening link", ex);
 		}
 	}
 
@@ -53,11 +64,12 @@ public class HyperlinkMouseListener implements MouseListener {
 	}
 
 	@Override
-	public void mousePressed(MouseEvent arg0) {
+	public void mousePressed(MouseEvent e) {
+		// Nothing to do: the link opens on click.
 	}
 
 	@Override
-	public void mouseReleased(MouseEvent arg0) {
+	public void mouseReleased(MouseEvent e) {
+		// Nothing to do: the link opens on click.
 	}
-
 }

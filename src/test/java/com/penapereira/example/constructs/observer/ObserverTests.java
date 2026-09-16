@@ -31,4 +31,16 @@ class ObserverTests {
         subject.doSomethingWith(1); // should not throw
         assertEquals(0, subject.getSupport().getPropertyChangeListeners().length);
     }
+
+    @Test
+    void allListenersCanBeRemovedAtOnce() {
+        Observable subject = new Observable();
+        subject.addPropertyChangeListener(new Observer());
+        subject.addPropertyChangeListener(event -> {});
+        assertEquals(2, subject.getSupport().getPropertyChangeListeners().length);
+
+        subject.removeAllListeners();
+
+        assertEquals(0, subject.getSupport().getPropertyChangeListeners().length);
+    }
 }
