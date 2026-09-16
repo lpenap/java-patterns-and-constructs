@@ -108,15 +108,12 @@
                                                         </rule>
                                                 </rules>
                                                 <excludes>
-                                                        <exclude>**/*ExampleRunner*</exclude>
                                                         <exclude>**/AppCommandLineRunner*</exclude>
                                                         <exclude>**/ExamplesCommandLineRunner*</exclude>
                                                         <exclude>**/ProducerConsumerExampleRunner*</exclude>
                                                         <exclude>**/Consumer*</exclude>
                                                         <exclude>**/JavaPatternsAndConstructsApplication*</exclude>
                                                         <exclude>**/MainWindow*</exclude>
-                                                        <exclude>**/Messages*</exclude>
-                                                        <exclude>**/ApplicationProperties*</exclude>
                                                         <exclude>**/HyperlinkMouseListener*</exclude>
                                                         <exclude>**/ObservableAbstract*</exclude>
                                                 </excludes>

@@ -12,4 +12,11 @@ class FactoryTests {
         assertEquals("Concrete Product A", a.name());
         assertEquals("Concrete Product B", b.name());
     }
+
+    @Test
+    void factoryRejectsUnknownType() {
+        ProductFactory factory = new ProductFactory();
+        IllegalArgumentException ex = assertThrows(IllegalArgumentException.class, () -> factory.createProduct("C"));
+        assertEquals("Unknown type: C", ex.getMessage());
+    }
 }
