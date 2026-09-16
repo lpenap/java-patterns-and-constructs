@@ -102,6 +102,11 @@
                                                                         <limit>
                                                                                 <counter>INSTRUCTION</counter>
                                                                                 <value>COVEREDRATIO</value>
+                                                                                <minimum>0.95</minimum>
+                                                                        </limit>
+                                                                        <limit>
+                                                                                <counter>BRANCH</counter>
+                                                                                <value>COVEREDRATIO</value>
                                                                                 <minimum>0.90</minimum>
                                                                         </limit>
                                                                 </limits>
