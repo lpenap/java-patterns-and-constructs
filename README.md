@@ -1,6 +1,6 @@
 [![CircleCI](https://dl.circleci.com/status-badge/img/gh/lpenap/java-patterns-and-constructs/tree/master.svg?style=shield)](https://dl.circleci.com/status-badge/redirect/gh/lpenap/java-patterns-and-constructs/tree/master)
 [![Build](https://github.com/lpenap/java-patterns-and-constructs/actions/workflows/maven.yml/badge.svg)](https://github.com/lpenap/java-patterns-and-constructs/actions/workflows/maven.yml)
-[![GitHub release](https://img.shields.io/github/release/lpenap/java-patterns-and-constructs)](//github.com/lpenap/java-patterns-and-constructs/releases/latest)
+[![GitHub release](https://img.shields.io/github/v/release/lpenap/java-patterns-and-constructs)](//github.com/lpenap/java-patterns-and-constructs/releases/latest)
 ![Coverage](.github/badges/jacoco.svg)
 ![Branches](.github/badges/branches.svg)
 
