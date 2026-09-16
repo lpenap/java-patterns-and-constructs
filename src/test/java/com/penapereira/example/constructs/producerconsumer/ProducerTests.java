@@ -20,4 +20,21 @@ class ProducerTests {
         assertEquals(2, queue.take());
         assertEquals(3, queue.take());
     }
+
+    @Test
+    void producerStopsWhenInterrupted() throws InterruptedException {
+        BlockingQueue<Integer> queue = new LinkedBlockingDeque<>(1);
+        Thread t = new Thread(new Producer(queue));
+        t.start();
+        while (queue.isEmpty()) {
+            Thread.onSpinWait();
+        }
+
+        t.interrupt();
+        t.join(5_000);
+
+        assertFalse(t.isAlive());
+        assertEquals(1, queue.size());
+        assertEquals(1, queue.take());
+    }
 }

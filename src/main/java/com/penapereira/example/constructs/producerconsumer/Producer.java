@@ -16,6 +16,8 @@ public class Producer implements Runnable {
 			try {
 				queue.put(i);
 			} catch (InterruptedException finish) {
+				Thread.currentThread().interrupt();
+				return;
 			}
 		}
 	}
