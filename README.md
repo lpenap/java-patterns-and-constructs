@@ -3,6 +3,7 @@
 [![GitHub release](https://img.shields.io/github/v/release/lpenap/java-patterns-and-constructs)](//github.com/lpenap/java-patterns-and-constructs/releases/latest)
 ![Coverage](.github/badges/jacoco.svg)
 ![Branches](.github/badges/branches.svg)
+[![License: GPL-3.0](https://img.shields.io/github/license/lpenap/java-patterns-and-constructs)](LICENSE)
 
 # Java Design Patterns and Constructs
 
@@ -18,7 +19,9 @@ A curated collection of object-oriented design patterns and concurrency construc
 6. [Documentation conventions](#documentation-conventions)
 7. [Related projects](#related-projects)
 8. [References](#references)
-9. [Contributing](#contributing)
+9. [How to cite](#how-to-cite)
+10. [License](#license)
+11. [Contributing](#contributing)
 
 ## Quickstart
 
@@ -186,6 +189,19 @@ Each pattern README follows the same outline, adapted from the pattern template 
 4. B. Goetz, T. Peierls, J. Bloch, J. Bowbeer, D. Holmes and D. Lea, *Java Concurrency in Practice*. Addison-Wesley, 2006.
 5. C. A. R. Hoare, "Monitors: An Operating System Structuring Concept," *Communications of the ACM*, vol. 17, no. 10, pp. 549–557, 1974.
 6. P. Brinch Hansen, *Operating System Principles*. Prentice-Hall, 1973.
+
+## How to cite
+
+Citation metadata is kept in [`CITATION.cff`](CITATION.cff), which GitHub renders through the **Cite this repository** button. Once a release has been archived on Zenodo, its DOI badge belongs here, and the concept DOI, which always resolves to the latest version, is the one to cite:
+
+<!-- Replace the two placeholders with the concept DOI once the first Zenodo archive exists. -->
+<!-- [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.XXXXXXX.svg)](https://doi.org/10.5281/zenodo.XXXXXXX) -->
+
+> L. A. Peña Pereira, *Java Design Patterns and Constructs*, version 8, 2026. Software. https://github.com/lpenap/java-patterns-and-constructs
+
+## License
+
+This project is licensed under the GNU General Public License, version 3. See [`LICENSE`](LICENSE) for the full text.
 
 ## Contributing
 

@@ -1,0 +1,53 @@
+# Citation metadata in Citation File Format (https://citation-file-format.github.io/).
+# GitHub renders it as "Cite this repository"; Zenodo reads it when archiving a release.
+cff-version: 1.2.0
+message: "If you use this software or its documentation in teaching or research, please cite it as below."
+type: software
+title: "Java Design Patterns and Constructs"
+abstract: >-
+  A curated collection of object-oriented design patterns and concurrency
+  constructs implemented in modern Java as teaching material. Each example is
+  reduced to the smallest set of classes that exhibits the essential structure
+  of the pattern and is accompanied by an academic write-up with references, a
+  class diagram and unit tests. A Spring Boot application with a Swing front
+  end hosts the examples so they can be executed and their output observed.
+authors:
+  - family-names: "Peña Pereira"
+    given-names: "Luis Augusto"
+    orcid: "https://orcid.org/0009-0001-0739-7149"
+repository-code: "https://github.com/lpenap/java-patterns-and-constructs"
+url: "https://github.com/lpenap/java-patterns-and-constructs"
+license: GPL-3.0
+version: "8"
+date-released: 2026-09-16
+keywords:
+  - design patterns
+  - software engineering education
+  - object-oriented programming
+  - concurrency
+  - producer-consumer
+  - Java
+  - Spring Boot
+references:
+  - type: book
+    title: "Design Patterns: Elements of Reusable Object-Oriented Software"
+    authors:
+      - family-names: Gamma
+        given-names: Erich
+      - family-names: Helm
+        given-names: Richard
+      - family-names: Johnson
+        given-names: Ralph
+      - family-names: Vlissides
+        given-names: John
+    publisher:
+      name: Addison-Wesley
+    year: 1994
+  - type: software
+    title: "Java Monitor Example"
+    authors:
+      - family-names: "Peña Pereira"
+        given-names: "Luis Augusto"
+        orcid: "https://orcid.org/0009-0001-0739-7149"
+    repository-code: "https://github.com/lpenap/java-monitor-example"
+    notes: "Companion project on the monitor synchronisation construct."
