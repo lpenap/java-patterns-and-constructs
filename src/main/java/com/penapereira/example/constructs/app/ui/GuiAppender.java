@@ -5,17 +5,17 @@ import java.awt.EventQueue;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.InitializingBean;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import ch.qos.logback.classic.spi.ILoggingEvent;
 import ch.qos.logback.core.AppenderBase;
+import lombok.RequiredArgsConstructor;
 
 @Component
+@RequiredArgsConstructor
 public class GuiAppender extends AppenderBase<ILoggingEvent> implements InitializingBean {
 
-    @Autowired
-    private MainWindow mainWindow;
+    private final OutputSink output;
 
     @Override
     public void afterPropertiesSet() throws Exception {
@@ -25,6 +25,6 @@ public class GuiAppender extends AppenderBase<ILoggingEvent> implements Initiali
 
     @Override
     protected void append(ILoggingEvent eventObject) {
-        EventQueue.invokeLater(() -> mainWindow.appendOutput(eventObject.getFormattedMessage() + System.lineSeparator()));
+        EventQueue.invokeLater(() -> output.appendOutput(eventObject.getFormattedMessage() + System.lineSeparator()));
     }
 }
