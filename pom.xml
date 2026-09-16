@@ -13,6 +13,13 @@
 	<version>0.1.0</version>
 	<name>java-patterns-and-constructs</name>
 	<description>Collection of patterns and other constructs in Java</description>
+	<url>https://github.com/lpenap/java-patterns-and-constructs</url>
+	<licenses>
+		<license>
+			<name>GNU General Public License v3.0</name>
+			<url>https://www.gnu.org/licenses/gpl-3.0.txt</url>
+		</license>
+	</licenses>
 
 	<properties>
                 <java.version>25</java.version>
