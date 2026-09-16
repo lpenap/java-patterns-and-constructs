@@ -7,7 +7,7 @@
 Collection of patterns and other constructs in Java for educational purposes. (See *Contributing* section if you would like to contribute).
 
 ## Quickstart
-* Install a Java 21 implementation (like openjdk21)
+* Install a Java 25 implementation (like openjdk25, see `.sdkmanrc`)
 * Clone and run the spring-boot maven goal:
 ```bash
 git clone https://github.com/lpenap/java-patterns-and-constructs
