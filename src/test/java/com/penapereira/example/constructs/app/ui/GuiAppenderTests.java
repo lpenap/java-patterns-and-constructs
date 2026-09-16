@@ -1,11 +1,8 @@
 package com.penapereira.example.constructs.app.ui;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.awt.EventQueue;
-import java.lang.reflect.Field;
-
-import javax.swing.JTextArea;
 
 import org.junit.jupiter.api.Test;
 
@@ -14,22 +11,9 @@ import ch.qos.logback.classic.spi.LoggingEvent;
 
 class GuiAppenderTests {
     @Test
-    void appendsMessageToTextArea() throws Exception {
-        // Allocate a MainWindow instance without triggering the JFrame constructor
-        Field theUnsafeField = sun.misc.Unsafe.class.getDeclaredField("theUnsafe");
-        theUnsafeField.setAccessible(true);
-        sun.misc.Unsafe unsafe = (sun.misc.Unsafe) theUnsafeField.get(null);
-
-        MainWindow window = (MainWindow) unsafe.allocateInstance(MainWindow.class);
-        JTextArea area = new JTextArea();
-        Field f = MainWindow.class.getDeclaredField("outputArea");
-        f.setAccessible(true);
-        f.set(window, area);
-
-        GuiAppender appender = new GuiAppender();
-        Field mw = GuiAppender.class.getDeclaredField("mainWindow");
-        mw.setAccessible(true);
-        mw.set(appender, window);
+    void appendsMessageToOutputSink() throws Exception {
+        StringBuilder output = new StringBuilder();
+        GuiAppender appender = new GuiAppender(output::append);
         appender.start();
 
         LoggingEvent event = new LoggingEvent();
@@ -39,6 +23,6 @@ class GuiAppenderTests {
         appender.doAppend(event);
         EventQueue.invokeAndWait(() -> {});
 
-        assertEquals("test message" + System.lineSeparator(), area.getText());
+        assertEquals("test message" + System.lineSeparator(), output.toString());
     }
 }
