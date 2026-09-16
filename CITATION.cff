@@ -14,8 +14,7 @@ abstract: >-
 authors:
   - family-names: "Peña Pereira"
     given-names: "Luis Augusto"
-    # Uncomment and fill in to have DataCite link the record to your ORCID profile:
-    # orcid: "https://orcid.org/0000-0000-0000-0000"
+    orcid: "https://orcid.org/0009-0001-0739-7149"
 repository-code: "https://github.com/lpenap/java-patterns-and-constructs"
 url: "https://github.com/lpenap/java-patterns-and-constructs"
 license: GPL-3.0
@@ -49,5 +48,6 @@ references:
     authors:
       - family-names: "Peña Pereira"
         given-names: "Luis Augusto"
+        orcid: "https://orcid.org/0009-0001-0739-7149"
     repository-code: "https://github.com/lpenap/java-monitor-example"
     notes: "Companion project on the monitor synchronisation construct."
