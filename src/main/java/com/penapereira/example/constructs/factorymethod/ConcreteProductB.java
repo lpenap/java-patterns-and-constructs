@@ -4,6 +4,6 @@ public class ConcreteProductB extends GenericProduct {
 
 	@Override
 	public String factoryMethod() {
-		return "ConcretepProduct B";
+		return "Concrete Product B";
 	}
 }

@@ -13,7 +13,7 @@ public class SingletonExampleRunner implements ExampleRunnerInterface {
 
 	@Override
 	public void runExample() throws Exception {
-		log.trace("Instanciating a Singleton");
+		log.trace("Instantiating a Singleton");
 
 		Singleton myInstance = Singleton.instance();
 		myInstance.doSomething();

@@ -8,8 +8,8 @@ class FactoryMethodTests {
     void productsReturnName() {
         GenericProduct a = new ConcreteProductA();
         GenericProduct b = new ConcreteProductB();
-        assertEquals("ConcretepProduct A", a.factoryMethod());
-        assertEquals("ConcretepProduct B", b.factoryMethod());
+        assertEquals("Concrete Product A", a.factoryMethod());
+        assertEquals("Concrete Product B", b.factoryMethod());
         a.build();
         b.build();
     }
